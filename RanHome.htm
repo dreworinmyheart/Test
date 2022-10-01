@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name ="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <title>染楓的幻想空間</title>
+        <link href="RanHome.css" rel="stylesheet" type="text/css" media="all"  />
+    </head>
+
+
+    <body>
+        <header>
+            <div id="upperMenu">
+                <img id="snowMiku"/>
+            </div>
+        </header>
+        <main>
+            <div class="box">a555555555<br/>123</div>
+            <div class="box">8188888888</div>
+            <div class="box">c144444448</div>
+            <div class="box">c741181358</div>
+
+            
+        </main>
+        <hr/>
+        <div class="switcher" >
+                <div class="option"></div>
+                <div class="option"></div>
+                <div class="option"></div>
+        </div>
+        
+
+        
+
+        <script>
+            console.log("Hello JavaScript!");
+            console.log("Hello Ran!");
+            console.log(""); 
+            
+            let switcher = document.querySelector(".switcher");
+            let currentoption = null;
+
+            switcher.addEventListener("click",function(e){
+                if(currentoption!==null){
+                    currentoption.classList.remove("current");
+                }
+                if(e.target.classList.contains("option")){
+                    currentoption = e.target;
+                    currentoption.classList.add("current");
+                }
+                else {
+                    currentoption =null;
+                }
+            });
+            
+
+        </script>
+    </body>
+</html>

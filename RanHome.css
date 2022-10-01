@@ -1,0 +1,80 @@
+body{
+    margin: 0px;background-color: rgb(233, 253, 253);
+}
+header{
+    background-color: bisque;
+}
+main{
+    display: flex;flex-wrap: wrap;/*flex-wrap，螢幕縮小，容器會視情況換行*/
+    justify-content: center;
+    align-items: stretch;
+    /*justify-content用來內容左中右*/
+    /*align-items用來項目垂直靠上中下或填空同大小，stretch為預設*/
+    margin-top: 5px;/*width: 1000px;*/
+    /*margin-left: auto ;margin-right: auto;*/
+    border: 1px solid red;
+}
+main>.box{
+    flex: none;/*若設成auto，則會把空間看情況填滿*/
+    width: 270px;margin: 10px;padding: 5px;
+    border:1px solid orange;
+    /*display: inline-block;vertical-align: top;;*/
+    text-align: center;line-height: 30px;  
+}/*vertical-align: top 意思為，box裡的東西都已上邊界對齊*/
+img{
+    display: block;
+    /*img預設是inline，設成block可以讓div放入img後不會預留下方空隙*/
+}
+
+#upperMenu{
+    width:1200px;margin-left: auto;margin-right: auto;
+}
+#snowMiku{
+    alt: "The frst meet for snow miku 2021 and snow miku 2022";
+    width: 80px;
+    content: url("picture/snow season.jpg");
+}
+
+.switcher{
+    display: flex;
+}
+
+.switcher>.option{
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    background-color:#cccccc;
+}
+
+.switcher>.current{
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    background-color:#666666;
+}
+
+@media screen and (max-width:1250px){
+    /*
+    .majorBox{
+        width:100%;text-align: center;
+    }*/
+    main>.box{
+        width: 40%;
+    }
+    #upperMenu{
+        width:100%;
+    }
+}
+
+@media screen and (max-width:600px){
+    /*
+    .majorBox{
+        width:100%;text-align: center;
+    }*/
+    main>.box{
+        width: 85%;
+    }
+    #upperMenu{
+        width:100%;
+    }
+}
