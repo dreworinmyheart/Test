@@ -31,27 +31,31 @@
             console.log("Hello Ran!");
             console.log(""); 
             
-            window.onload = function(){
+            window.onload = function(){ //window載入時執行
                 let cvs = document.querySelector("#cvs");
                 let ctx = cvs.getContext("2d");
                 
                 let img = new Image();
                 img.src="https://dreworinmyheart.github.io/Test/picture/EMT.jpg";
+                //因為有跨域問題，所以不能用本機圖檔測試，雖然我也不知道為什麼
+                //所以這邊用github當後端測試
                 img.onload = function(){
                     ctx.drawImage(this,0,0,cvs.width,cvs.height);
-                }
+                }//圖片先載入完才畫到canvas上，避免還沒載入完就要求要畫
 
                 let invertColor = document.querySelector("#invertColor");
                 invertColor.addEventListener("click",function(){
                     let pixels =ctx.getImageData(0,0,cvs.width,cvs.height);
+                    //把canvas的每個像素資訊都抓起來(可以選定範圍的，只是這個例子是全部抓)
                     let data = pixels.data;
-                    
+                    //pixels.data會把這畫布的每個點的資料都用陣列存起來，每個像素用4個(資料bytes，0~255)陣列位置表達分別是[紅][綠][藍][透明度]                    
                     for (let i=0;i<data.length;i+=4){
-                        data[i] = 255-data[i];
-                        data[i+1] = 255-data[i+1];
-                        data[i+2] = 255-data[i+2];
+                        data[i] = 255-data[i]; //把紅色反轉
+                        data[i+1] = 255-data[i+1]; //把綠色反轉
+                        data[i+2] = 255-data[i+2]; //把藍色反轉
                     }
                     ctx.putImageData(pixels,0,0);
+                    //再把像素資料畫回去
                 })
                 
             }
