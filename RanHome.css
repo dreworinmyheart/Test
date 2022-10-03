@@ -35,24 +35,6 @@ img{
     content: url("picture/snow season.jpg");
 }
 
-.switcher{
-    display: flex;
-}
-
-.switcher>.option{
-    width: 40px;
-    height: 40px;
-    margin: 5px;
-    background-color:#cccccc;
-}
-
-.switcher>.current{
-    width: 40px;
-    height: 40px;
-    margin: 5px;
-    background-color:#666666;
-}
-
 @media screen and (max-width:1250px){
     /*
     .majorBox{

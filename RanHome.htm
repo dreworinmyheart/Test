@@ -7,6 +7,7 @@
         <link href="RanHome.css" rel="stylesheet" type="text/css" media="all"  />
     </head>
 
+    
 
     <body>
         <header>
@@ -22,36 +23,31 @@
 
             
         </main>
-        <hr/>
-        <div class="switcher" >
-                <div class="option"></div>
-                <div class="option"></div>
-                <div class="option"></div>
-        </div>
-        
-
-        
+        <div><button id="invertColor">影像反轉</button></div>
+        <canvas id="cvs" width="300px" height="350px" style="border: 1px solid black;"></canvas>
 
         <script>
             console.log("Hello JavaScript!");
             console.log("Hello Ran!");
             console.log(""); 
             
-            let switcher = document.querySelector(".switcher");
-            let currentoption = null;
+            window.onload = function(){
+                let cvs = document.querySelector("#cvs");
+                let ctx = cvs.getContext("2d");
+                
+                let img = new Image();
+                img.src="https://dreworinmyheart.github.io/Test/picture/EMT.jpg";
+                img.onload = function(){
+                    ctx.drawImage(this,0,0,cvs.width,cvs.height);
+                }
 
-            switcher.addEventListener("click",function(e){
-                if(currentoption!==null){
-                    currentoption.classList.remove("current");
-                }
-                if(e.target.classList.contains("option")){
-                    currentoption = e.target;
-                    currentoption.classList.add("current");
-                }
-                else {
-                    currentoption =null;
-                }
-            });
+                let invertColor = document.querySelector("#invertColor");
+                invertColor.addEventListener("click",function(){
+                    let pixels =ctx.getImageData(0,0,cvs.width,cvs.height);
+                    console.log("pixels");
+                })
+                
+            }
             
 
         </script>
