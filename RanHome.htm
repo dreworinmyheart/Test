@@ -44,7 +44,14 @@
                 let invertColor = document.querySelector("#invertColor");
                 invertColor.addEventListener("click",function(){
                     let pixels =ctx.getImageData(0,0,cvs.width,cvs.height);
-                    console.log(pixels);
+                    let data = pixels.data;
+                    
+                    for (let i=0;i<data.length'i+=4){
+                        data[i] = 255-data[i];
+                        data[i+1] = 255-data[i+1];
+                        data[i+2] = 255-data[i+2];
+                    }
+                    ctx.putImageData(pixels,0,0);
                 })
                 
             }
